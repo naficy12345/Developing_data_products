@@ -1,0 +1,74 @@
+---
+title       : Developing Data Products Project
+subtitle    : Calculating MPG per MTCARS data
+author      : S. Naficy
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+---
+
+
+
+
+## Miles Per Galon Application
+
+The Miles Per Galon application uses the predict function in R to estimate a car miles per galon per the given parameters:
+- Weigth
+- Transmission Type
+- Quarter mile time per Second
+
+---
+
+## The Data
+The application uses the data that was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+
+```{r}
+mtcars
+
+```
+
+---
+
+## The Prediction Model 
+the following code is used to create the Model used in the predict function
+
+```{r,results='hide'}
+data(mtcars)
+init_fit <- lm(mpg ~ ., data = mtcars)
+best_fit <- step(init_fit, direction = "both")
+
+
+```
+
+
+
+The best_fit model shows that mpg is a function of Weigth(wt), Transmission Type(am), and Quarter mile time per Second(qsec)
+
+
+
+
+
+---
+
+## The Application URL
+
+https://snaficy.shinyapps.io/ShinyApp/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
